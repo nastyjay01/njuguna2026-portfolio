@@ -241,7 +241,7 @@ const Contact: React.FC = () => {
                     asChild
                   >
                     <a
-                      href="https://github.com/njuguna2026"
+                      href="https://github.com/nastyjay01/njuguna2026-portfolio"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
