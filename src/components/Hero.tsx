@@ -43,43 +43,42 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-          {t('hero.title')}
-        </h1>
+  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+    {t('hero.title')}
+  </h1>
 
-        <p className="text-lg md:text-xl text-white/90 mb-4 max-w-2xl mx-auto">
-          {t('hero.subtitle')}
-        </p>
+  <p className="text-lg md:text-xl text-white/90 mb-4 max-w-2xl mx-auto">
+    {t('hero.subtitle')}
+  </p>
 
-        <p className="text-xl md:text-2xl text-portfolio-accent font-medium mb-8 italic">
-          "{t('hero.tagline')}"
-        </p>
+  <p className="text-xl md:text-2xl text-portfolio-accent font-medium mb-8 italic">
+    "{t('hero.tagline')}"
+  </p>
 
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <Button
+      size="lg"
+      onClick={scrollToProjects}
+      className="bg-portfolio-accent hover:bg-portfolio-accent/90 text-white font-semibold px-8 py-6 text-lg"
+    >
+      {t('hero.viewProjects')}
+    </Button>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-  <Button
-    size="lg"
-    onClick={scrollToProjects}
-    className="bg-portfolio-accent hover:bg-portfolio-accent/90 text-white font-semibold px-8 py-6 text-lg"
-  >
-    {t('hero.viewProjects')}
-  </Button>
-
-  <a
-    href="/documents/cv.pdf"  
-    target="_blank"
-    rel="noopener noreferrer"
-    download                           
-  >
     <Button
       size="lg"
       variant="outline"
       className="border-white text-white hover:bg-white hover:text-portfolio-primary font-semibold px-8 py-6 text-lg"
+      onClick={() => {
+        const link = document.createElement('a');
+        link.href = '/documents/cv.pdf';
+        link.download = 'cv.pdf';
+        link.click();
+      }}
     >
       <Download className="mr-2 h-5 w-5" />
       {t('hero.downloadCV')}
     </Button>
-  </a>
+  </div>
 </div>
 
       {/* Scroll Indicator */}
