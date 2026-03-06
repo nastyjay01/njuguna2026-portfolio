@@ -55,32 +55,32 @@ const Hero: React.FC = () => {
           "{t('hero.tagline')}"
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            onClick={scrollToProjects}
-            className="bg-portfolio-accent hover:bg-portfolio-accent/90 text-white font-semibold px-8 py-6 text-lg"
-          >
-            {t('hero.viewProjects')}
-          </Button>
 
-            <a
-    href="public/documents/cv.pdf"
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <Button
+    size="lg"
+    onClick={scrollToProjects}
+    className="bg-portfolio-accent hover:bg-portfolio-accent/90 text-white font-semibold px-8 py-6 text-lg"
+  >
+    {t('hero.viewProjects')}
+  </Button>
+
+  <a
+    href="/documents/cv.pdf"  
     target="_blank"
     rel="noopener noreferrer"
-    download                            
+    download                           
   >
-
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-white text-white hover:bg-white hover:text-portfolio-primary font-semibold px-8 py-6 text-lg"
-          >
-            <Download className="mr-2 h-5 w-5" />
-            {t('hero.downloadCV')}
-          </Button>
-        </div>
-      </div>
+    <Button
+      size="lg"
+      variant="outline"
+      className="border-white text-white hover:bg-white hover:text-portfolio-primary font-semibold px-8 py-6 text-lg"
+    >
+      <Download className="mr-2 h-5 w-5" />
+      {t('hero.downloadCV')}
+    </Button>
+  </a>
+</div>
 
       {/* Scroll Indicator */}
       <button
