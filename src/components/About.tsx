@@ -44,9 +44,18 @@ const About: React.FC = () => {
           {/* Left Column - Photo & Social Links */}
           <div className="flex flex-col items-center">
             {/* Photo Placeholder */}
-            <div className="w-64 h-64 rounded-full bg-gradient-to-br from-portfolio-primary to-portfolio-accent flex items-center justify-center mb-6 shadow-xl">
-              <span className="text-white text-6xl font-bold">EN</span>
-            </div>
+           <div className="w-64 h-64 rounded-full overflow-hidden mb-6 shadow-xl border-4 border-portfolio-accent">
+  <img
+    src="/aboutbtsphoto.png"
+    alt="Earnest NJUGUNA - Network Engineering Student"
+    className="w-full h-full object-cover"
+    onError={(e) => {
+      e.currentTarget.style.display = 'none';
+      e.currentTarget.parentElement!.innerHTML =
+        '<span class="text-white text-6xl font-bold flex items-center justify-center w-full h-full bg-gradient-to-br from-portfolio-primary to-portfolio-accent">EN</span>';
+    }}
+  />
+</div>
 
             {/* Social Links */}
             <div className="flex gap-3">
