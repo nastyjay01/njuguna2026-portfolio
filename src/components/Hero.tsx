@@ -64,6 +64,13 @@ const Hero: React.FC = () => {
             {t('hero.viewProjects')}
           </Button>
 
+            <a
+    href="public/documents/cv.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    download                            
+  >
+
           <Button
             size="lg"
             variant="outline"
