@@ -70,8 +70,8 @@ const Hero: React.FC = () => {
       className="border-white text-white hover:bg-white hover:text-portfolio-primary font-semibold px-8 py-6 text-lg"
       onClick={() => {
         const link = document.createElement('a');
-        link.href = '/documents/cv.pdf';
-        link.download = 'cv.pdf';
+        link.href = '/documents/cv1.pdf';
+        link.download = 'cv1.pdf';
         link.click();
       }}
     >
