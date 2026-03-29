@@ -36,7 +36,7 @@ const Projects: React.FC = () => {
           { category: 'video', title: 'Network Configuration Tutorial', description: 'Step-by-step guide to configuring enterprise network infrastructure using Cisco Packet Tracer.', tools: ['Cisco Packet Tracer'] },
           { category: 'video', title: 'Linux Server Setup Guide', description: 'Complete tutorial on setting up and configuring Linux servers in a virtual environment.', tools: ['VirtualBox', 'Linux', 'Tutorial'] },
           { category: 'pdf', title: 'Network Architecture Documentation', description: 'Comprehensive documentation of network topology and configuration best practices.', tools: ['Technical Writing', 'Network Diagrams'] },
-          { category: 'pdf', title: 'Complete project Documentation', description: 'Hospital Network Proof of Concept - Complete Project Package.', tools: ['Documentation', 'Alpha Blueprint', 'Configuration'], pdfUrl: '/documents/HOSPITAL_FR_Alpha_Blueprint.pdf' },
+          { category: 'pdf', title: 'Complete project Documentation', description: 'Hospital Network Proof of Concept - Complete Project Package.', tools: ['Documentation', 'Alpha Blueprint', 'Configuration'], thumbnail: 'public/thumbnails/projectpic.png', pdfUrl: '/documents/HOSPITAL_FR_Alpha_Blueprint.pdf' },
           { category: 'lab', title: 'VLAN & Routing Lab', description: 'Hands-on lab exercise covering VLAN configuration and inter-VLAN routing.', tools: ['Cisco Packet Tracer', 'Routing', 'VLANs'] },
           { category: 'lab', title: 'Network Security Lab', description: 'Security-focused lab implementing firewall rules and network protection.', tools: ['VirtualBox', 'Network Security'] },
         ]
@@ -44,7 +44,7 @@ const Projects: React.FC = () => {
           { category: 'video', title: 'Tutoriel Configuration Réseau', description: "Guide étape par étape pour configurer une infrastructure réseau d'entreprise avec Cisco Packet Tracer.", tools: ['Cisco Packet Tracer'] },
           { category: 'video', title: 'Guide Installation Serveur Linux', description: "Tutoriel complet sur l'installation et la configuration de serveurs Linux en environnement virtuel.", tools: ['VirtualBox', 'Linux', 'Tutoriel'] },
           { category: 'pdf', title: 'Documentation Architecture Réseau', description: 'Documentation complète de la topologie réseau et des meilleures pratiques de configuration.', tools: ['Rédaction Technique', 'Schémas Réseau'] },
-          { category: 'pdf', title: 'Documentation complète du projet', description: 'Preuve de concept pour un réseau hospitalier - Dossier de projet complet.', tools: ['Documentation', 'Plan Directeur Alpha', 'Configuration'], pdfUrl: '/documents/HOSPITAL_FR_Alpha_Blueprint.pdf' },
+          { category: 'pdf', title: 'Documentation complète du projet', description: 'Preuve de concept pour un réseau hospitalier - Dossier de projet complet.', tools: ['Documentation', 'Plan Directeur Alpha', 'Configuration'], thumbnail: 'public/thumbnails/projectpic.png', pdfUrl: '/documents/HOSPITAL_FR_Alpha_Blueprint.pdf' },
           { category: 'lab', title: 'Lab VLAN & Routage', description: 'Exercice pratique couvrant la configuration VLAN et le routage inter-VLAN.', tools: ['Cisco Packet Tracer', 'Routage', 'VLANs'] },
           { category: 'lab', title: 'Lab Sécurité Réseau', description: 'Lab axé sur la sécurité implémentant des règles de pare-feu et la protection réseau.', tools: ['VirtualBox', 'Sécurité Réseau'] },
         ];
@@ -138,14 +138,23 @@ const Projects: React.FC = () => {
               className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-portfolio-text/10"
             >
               {/* Thumbnail */}
-              <div className={`relative h-48 bg-gradient-to-br ${gradientColors[index % gradientColors.length]}`}>
-                <Badge
-                  className="absolute top-3 right-3 bg-white/90 text-portfolio-text hover:bg-white"
-                >
-                  {getCategoryIcon(project.category)}
-                  <span className="ml-1">{getCategoryLabel(project.category)}</span>
-                </Badge>
+
+              <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${gradientColors[index % gradientColors.length]}`}>
+                {project.thumbnail && (
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                  />
+                )}
+               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+               <Badge className="absolute top-3 right-3 bg-white/90 text-portfolio-text hover:bg-white z-10">
+                 {getCategoryIcon(project.category)}
+                 <span className="ml-1">{getCategoryLabel(project.category)}</span>
+               </Badge>
               </div>
+              
 
               <CardHeader className="pb-2">
                 <h3 className="text-xl font-semibold text-portfolio-text group-hover:text-portfolio-accent transition-colors">
